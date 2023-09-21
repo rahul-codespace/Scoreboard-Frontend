@@ -1,0 +1,30 @@
+// colors
+$black: #333333;
+$white: #ffffff;
+$grey: #979797;
+$off-grey: #e5e5e5;
+$blue: #007bff;
+$yellow: #f9c213;
+$yellow-1: #f9c213;
+$yellow-2: #fbd764;
+$yellow-3: #fdebb1;
+
+$colors: (
+  "black": $black,
+  "white": $white,
+  "grey": $grey,
+  "blue": $blue,
+  "yellow": $yellow,
+);
+
+// fonts
+$font-family: "Montserrat", "sans-serif";
+$fontList: 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40,
+  42;
+
+$font-weight: 100, 200, 300, 400, 500, 600, 700, 800;
+
+// functions
+@function rem($value) {
+  @return calc($value/16) + rem;
+}

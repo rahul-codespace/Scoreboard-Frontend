@@ -1,0 +1,45 @@
+@import "./variables.scss";
+
+@mixin fs($value) {
+  font-size: rem($value);
+}
+
+@mixin fw($value) {
+  font-weight: $value;
+}
+
+@mixin padding($value){
+  padding: rem($value);  // important is needed to override bootstrap's default values for paddings
+}
+
+@mixin padding-x($value) {
+  padding-left: rem($value);
+  padding-right: rem($value);
+}
+
+@mixin padding-y($value) {
+  padding-top: rem($value);
+  padding-bottom: rem($value);
+}
+
+@mixin margin($value){
+  margin: rem($value);  // important is needed to override bootstrap's default values for paddings
+}
+
+@mixin margin-x($value) {
+  margin-left: rem($value);
+  margin-right: rem($value);
+}
+
+@mixin margin-y($value) {
+  margin-top: rem($value);
+  margin-bottom: rem($value);
+}
+
+@mixin flexbox($direction: row, $justify: flex-start, $align: stretch, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: rem($gap);
+}
