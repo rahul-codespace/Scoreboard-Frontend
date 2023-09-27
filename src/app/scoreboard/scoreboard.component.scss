@@ -1,0 +1,69 @@
+@import "variables";
+@import "mixins";
+
+.wrapper {
+  height: 100%;
+  overflow: hidden;
+  @include flexbox();
+  .sidebar {
+    width: rem(222);
+    background-color: $white;
+
+    .logo-img {
+      height: rem(90);
+      @include flexbox(row, center, center);
+    }
+    .sidebar-content {
+      @include padding-x(12);
+      @include padding-y(20);
+      button {
+        height: rem(56);
+        width: 100%;
+        @include fs(18);
+        @include fw(600);
+        @include padding-x(35);
+        @include padding-y(17);
+      }
+    }
+  }
+  .content {
+    flex: 1;
+    .navbar {
+      background-color: $white;
+      height: rem(90);
+      @include padding-x(30);
+      @include flexbox(row, end, center, 10);
+      button {
+        @include fs(20);
+        @include padding-x(43);
+        @include padding-y(12);
+      }
+    }
+  }
+}
+
+// modal style
+// .modal-header {
+//   @include padding(30);
+//   @include flexbox(row, center, center);
+// }
+// .modal-body{
+//   overflow: hidden;
+//   .form-input{
+//       width: calc(100%);
+//       border: rem(1) solid $grey;
+//       border-radius: rem(4);
+//       box-sizing: border-box;
+//       @include padding-x(8);
+//       @include padding-y(12);
+//       @include margin-y(8);
+//       &::placeholder {
+//         @include fs(12);
+//         color: $grey;
+//         opacity: 1; /* Firefox */
+//       }
+//   }
+//   button{
+//     width: 100%;
+//   }
+// }

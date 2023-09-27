@@ -1,0 +1,41 @@
+<main class="wrapper">
+  <aside class="sidebar">
+    <div class="logo-img">
+      <img src="../../assets/images/Logo-Black.png" alt="logo">
+    </div>
+    <div class="sidebar-content">
+      <button type="button" class="button button-solid">ScoreBoard</button>
+    </div>
+  </aside>
+  <section class="content">
+    <nav class="navbar">
+      <!-- <button type="button" class="button button-bordered-grey" *ngIf="!isAdminLogin" (click)="open(content)">Log
+        in</button> -->
+      <button type="button" class="button button-bordered-grey" *ngIf="isAdminLogin" (click)="logout()">Logout</button>
+    </nav>
+    <section class="card-wrapper">
+          <!-- <app-score-table></app-score-table> -->
+          <router-outlet></router-outlet>
+
+    </section>
+  </section>
+</main>
+
+<!-- Login modal -->
+<!-- <ng-template #content let-modal>
+    <div class="modal-header">
+      <img src="../../assets/images/Logo-Black.png" alt="logo">
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <div class="mb-3">
+          <p class="font-22 font-weight-600">Log in</p>
+        </div>
+        <input class="form-input" type="text" formControlName="username" name="username" id="username" placeholder="User Name" autocomplete="off">
+        <input class="form-input" type="password" formControlName="password" name="password" id="password" placeholder="Password" autocomplete="off">
+        <button type="submit" class="button button-solid " (click)="modal.close('Save click')">Log in</button>
+      </form>
+    </div>
+    <div class="modal-footer">
+    </div>
+  </ng-template> -->

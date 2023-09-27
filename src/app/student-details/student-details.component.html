@@ -1,0 +1,31 @@
+<div class="card-wrapper">
+  <div class="card">
+    <!-- {{ studentDetails | json }} -->
+    <div class="card-header">
+      <p class="font-20">Student Details</p>
+    </div>
+    <div class="card-body font-16 ">
+      <div class="student-details">
+        <div class="row">
+          <div class="col">
+            <strong>Student Name:</strong> {{studentDetails.name}}
+          </div>
+          <div class="col">
+            <strong>Percentage Score:</strong> {{studentDetails.percentage > 0 ? (studentDetails.percentage | number: '1.1-1') : 0 }} %
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <strong>Stream:</strong> {{studentDetails.stream.name}}
+          </div>
+          <div class="col">
+            <strong> Obtain Marks:</strong> {{studentDetails.totalAchievedPoints}} out of {{studentDetails.totalPoints}}
+          </div>
+        </div>
+      </div>
+      <div class="student-subject-details">
+        
+      </div>
+    </div>
+  </div>
+</div>
