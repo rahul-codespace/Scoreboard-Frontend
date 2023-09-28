@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthenticationService } from '../_services/authentication.service';
 import { ScoreboardService } from '../_services/scoreboard.service';
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
@@ -16,7 +16,7 @@ export class ScoreboardComponent implements OnInit {
   loginForm!: FormGroup;
 
   constructor(
-    private modalService: NgbModal,
+    // private modalService: NgbModal,
     private formbuilder: FormBuilder,
     private authenticationService: AuthenticationService,
     private scoreboardService: ScoreboardService,
@@ -50,9 +50,9 @@ export class ScoreboardComponent implements OnInit {
     });
   }
 
-  open(content: any) {
-    this.modalService.open(content, { centered: true, size: 'sm' });
-  }
+  // open(content: any) {
+  //   this.modalService.open(content, { centered: true, size: 'sm' });
+  // }
 
   onLogin() {
     const data = this.loginForm.value;

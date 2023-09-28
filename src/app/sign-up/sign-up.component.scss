@@ -1,0 +1,45 @@
+@import "variables";
+@import "mixins";
+
+.modal-wrapper {
+  height: 100vh;
+  width: 100vw;
+  @include flexbox(row,center,center);
+  .modal-box {
+    width: rem(370);
+    background-color: $white;
+    border: rem(1) solid $grey;
+    border-radius: rem(20);
+    box-sizing: border-box;
+    @include padding(20);
+    .modal-header {
+      border-bottom: rem(1) solid $grey;
+      @include padding(20);
+      @include flexbox(row, center, center);
+    }
+    .modal-body {
+      overflow: hidden;
+      @include padding-y(20);
+      .form-input {
+        width: calc(100%);
+        border: rem(1) solid $grey;
+        border-radius: rem(4);
+        box-sizing: border-box;
+        @include padding-x(8);
+        @include padding-y(12);
+        @include margin-y(8);
+        &::placeholder {
+          @include fs(12);
+          color: $grey;
+          opacity: 1; /* Firefox */
+        }
+      }
+    }
+    .modal-footer{
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
