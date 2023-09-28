@@ -1,6 +1,6 @@
 <div class="modal-wrapper">
   <div class="modal-box">
-    <form [formGroup]="adminLoginForm" (ngSubmit)="onLogin()">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
     <div class="modal-header">
       <img src="../../assets/images/Logo-Black.png" alt="logo">
     </div>
@@ -8,8 +8,8 @@
         <div class="mb-3">
           <p class="font-22 font-weight-600">Log in</p>
         </div>
-        <input class="form-input" type="text" formControlName="username" name="username" id="username"
-          placeholder="User Name" autocomplete="off">
+        <input class="form-input" type="text" formControlName="email" name="email" id="email"
+          placeholder="Email" autocomplete="off">
         <input class="form-input" type="password" formControlName="password" name="password" id="password"
           placeholder="Password" autocomplete="off">
 

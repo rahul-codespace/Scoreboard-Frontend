@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { ScoreTableComponent } from './score-table/score-table.component';
 import { StudentDetailsComponent } from './student-details/student-details.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { AlertToasterComponent } from './alert-toaster/alert-toaster.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     ScoreTableComponent,
     StudentDetailsComponent,
     SignUpComponent,
+    AlertToasterComponent
   ],
   imports: [
     BrowserModule,

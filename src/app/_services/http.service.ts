@@ -1,5 +1,6 @@
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,16 +12,26 @@ export class HttpService {
   headers!: HttpHeaders;
   requestOptions: any;
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient,
+    private router: Router) {
+      this.router.events.subscribe(
+        (events)=>{
+          if(events instanceof NavigationEnd){
+            const token = localStorage.getItem('token')
+            this.headers = new HttpHeaders({
+              'Content-Type': 'application/json; charset=utf-8',
+              'X-Requested-With': 'XMLHttpRequest',
+              'Authorization': `Bearer ${token}`
+            });
+            this.requestOptions = {
+              headers: this.headers,
+              withCredentials: true,
+            };
+          }
+        }
+      )
 
-    this.headers = new HttpHeaders({
-      'Content-Type': 'application/json; charset=utf-8',
-      'X-Requested-With': 'XMLHttpRequest',
-    });
-    this.requestOptions = {
-      headers: this.headers,
-      withCredentials: true,
-    };
+
   }
 
   public post(apibaseURL: string, data: any): Observable<any> {
@@ -35,7 +46,7 @@ export class HttpService {
 
   public get(apibaseURL: string): Observable<any> {
     return this.httpClient
-      .get<any>(`${this.baseURL}/${apibaseURL}`, this.requestOptions);
+      .get<any>(`${this.baseURL}/${apibaseURL}`);
   }
 
   public delete(apibaseURL: string) {

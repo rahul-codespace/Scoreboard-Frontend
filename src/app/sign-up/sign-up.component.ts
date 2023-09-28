@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AuthenticationService } from '../_services/authentication.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AlertToasterService } from '../alert-toaster-services/alert-toaster.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -9,28 +11,40 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class SignUpComponent {
   signupForm: FormGroup;
-  constructor(private authService: AuthenticationService, private fb: FormBuilder,) {
+  constructor(
+    private authService: AuthenticationService,
+    private fb: FormBuilder,
+    private alert: AlertToasterService,
+    private router: Router
+  ) {
     this.signupForm = this.fb.group({
-      id: [0, Validators.required],
-      name: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required],
-      streamId: [0, Validators.required]
+      streamId: ['', Validators.required],
     });
   }
 
   onSignup() {
     if (this.signupForm.valid) {
-      const formData = this.signupForm.value;
-      console.log("formData", formData);
-      
-      this.authService.signup(formData).subscribe(
+      const data = {
+        email: this.signupForm.get('email')?.value,
+        password: this.signupForm.get('password')?.value,
+        streamId: Number(this.signupForm.get('streamId')?.value)
+      }
+      console.log("formData", data);
+
+      this.authService.signup(data).subscribe(
         (response) => {
-          console.log('Signup success:', response);
+          this.router.navigateByUrl('scoreboard')
+          this.alert.success('Student Registered Successful', true)
         },
         (error) => {
-          console.error('Signup failed:', error);
+          this.alert.error('Signup failed', true);
         }
       );
+    }
+    else {
+      this.alert.error(' Please Enter valid details', true);
     }
   }
 }

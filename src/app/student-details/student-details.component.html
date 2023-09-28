@@ -4,7 +4,7 @@
       <p class="font-20">Student Details</p>
     </div>
     <div class="card-body font-16">
-      <div class="student-subject-details">
+      <div class="student-subject-details" *ngIf="studentDetails">
         <table>
           <thead>
             <tr>
@@ -32,8 +32,8 @@
           </tbody>
         </table>
       </div>
-      
-      <div class="student-subject-details">
+
+      <div class="student-subject-details" *ngIf="studentInfo">
         <table>
           <thead>
             <tr>

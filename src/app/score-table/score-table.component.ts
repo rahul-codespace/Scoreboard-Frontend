@@ -3,6 +3,7 @@ import { ScoreboardService } from '../_services/scoreboard.service';
 import { StudentList } from '../_modal/studentList.dto';
 import { NavigationEnd, Router } from '@angular/router';
 import { AuthenticationService } from '../_services/authentication.service';
+import jwt_decode from "jwt-decode";
 
 @Component({
   selector: 'app-score-table',
@@ -13,6 +14,7 @@ export class ScoreTableComponent implements OnInit {
 
   studentList!: StudentList[];
   isAdminLogin: boolean;
+  roleOfUser!: string;
 
   constructor(
     private scoreboardService: ScoreboardService,
@@ -44,6 +46,17 @@ export class ScoreTableComponent implements OnInit {
   }
 
   getLoginStatus() {
-    this.isAdminLogin = this.authenticationService.isAdminLogin;
+    const token = localStorage.getItem('token') as string;
+    if (token) {
+      const decoded: any = jwt_decode(token);
+      this.roleOfUser = decoded['http://schemas.microsoft.com/ws/2008/06/identity/claims/role']
+      console.log(decoded['http://schemas.microsoft.com/ws/2008/06/identity/claims/role']);
+      if(this.roleOfUser.toLocaleLowerCase() == 'student'){
+        this.isAdminLogin = false;
+      }else if (this.roleOfUser.toLocaleLowerCase() == 'tl' || this.roleOfUser.toLocaleLowerCase() == 'mentor' || this.roleOfUser.toLocaleLowerCase() == 'hr'){
+        this.isAdminLogin = true;
+      }
+    }
   }
 }
+
