@@ -1,0 +1,67 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+@import url('https://fonts.cdnfonts.com/css/montserrat');
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  // height: 100vh;
+  box-sizing: border-box;
+  font-family: Montserrat, sans-serif;
+  overflow-x: hidden;
+  @include fs(18);
+}
+
+// utils
+
+// font-color
+@each $name, $value in $colors {
+  .text-#{$name} {
+    color: $value;
+  }
+}
+
+// font-size
+@each $item in $fontList {
+  .font-#{$item} {
+    @include fs($item);
+  }
+}
+
+// font-weight
+@each $item in $font-weight {
+  .font-weight-#{$item} {
+    @include fw($item);
+  }
+}
+
+// global css
+.button{
+  border-radius: rem(5);
+  border: none;
+  @include padding-x(25);
+  @include padding-y(12);
+
+  &-solid{
+    background-color: $blue;
+    color: $white;
+  }
+  &-bordered-blue{
+    background-color: $white;
+    border: rem(1) solid $blue;
+    color: $blue;
+  }
+  &-bordered-grey{
+    background-color: $white;
+    border: rem(1) solid $grey;
+    color: $grey;
+  }
+
+}
+
+.text-center{
+  text-align: center;
+}
+
+
