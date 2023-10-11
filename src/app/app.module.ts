@@ -4,11 +4,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ScoreboardComponent } from './scoreboard/scoreboard.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { ScoreTableComponent } from './score-table/score-table.component';
 import { StudentDetailsComponent } from './student-details/student-details.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { AlertToasterComponent } from './alert-toaster/alert-toaster.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +19,15 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
     LoginComponent,
     ScoreTableComponent,
     StudentDetailsComponent,
+    SignUpComponent,
+    AlertToasterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule,
+    // NgbModule,
     HttpClientModule
   ],
   providers: [],

@@ -1,0 +1,20 @@
+<div class="modal-wrapper">
+    <div class="modal-box">
+      <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
+        <div class="modal-header">
+          <img src="../../assets/images/Logo-Black.png" alt="logo">
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <p class="font-22 font-weight-600">Sign Up</p>
+          <input class="form-input" type="text" formControlName="email" name="email" id="email" placeholder="Email" autocomplete="off">
+          <input class="form-input" type="password" formControlName="password" name="password" id="password" placeholder="Password" autocomplete="off">
+          <input class="form-input" type="text" formControlName="streamId" name="stream-id" id="stream-id" placeholder="Stream Id [1-5]" autocomplete="off">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="button button-solid">Sign Up</button>
+      </div>
+      </form>
+    </div>
+  </div>

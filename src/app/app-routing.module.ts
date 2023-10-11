@@ -4,6 +4,7 @@ import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 import { LoginComponent } from './login/login.component';
 import { StudentDetailsComponent } from './student-details/student-details.component';
 import { ScoreTableComponent } from './score-table/score-table.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 const routes: Routes = [
   {
@@ -21,7 +22,8 @@ const routes: Routes = [
   },
   {
     path: 'login', component: LoginComponent
-  }
+  },
+  { path: 'signup', component: SignUpComponent },
 ];
 
 @NgModule({

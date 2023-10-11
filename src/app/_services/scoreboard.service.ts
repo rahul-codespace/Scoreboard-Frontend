@@ -11,4 +11,9 @@ export class ScoreboardService {
   getStudentsList(){
     return this.http.get('api/ScoreboardGetStudentsInfo');
   }
+
+  getStudentDetail(studentId: number){
+    const apiUrl = `api/ScoreboardGetStudentsInfoByStream?studentId=${studentId}`;
+    return this.http.get(apiUrl);
+  }
 }

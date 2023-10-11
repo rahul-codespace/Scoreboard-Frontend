@@ -16,3 +16,24 @@ class Stream {
   streamCourses?: string;
   createdAt!: string;
 }
+
+export interface StudentInfo {
+  id: number;
+  name: string;
+  courses: Course[];
+}
+
+export interface Course {
+  id: number;
+  name: string;
+  assignments: Assignment[];
+}
+
+export interface Assignment {
+  id: number;
+  name: string;
+  point: number;
+  achievedPoint: number | string;
+  percentage: number | string;
+  comments: string | null;
+}
